@@ -1,12 +1,14 @@
 import Head from "next/head";
+import Navbar from "./components/Navbar";
 
 export default function Home() {
   return (
     <>
       <Head>
         <title>TJRides</title>
+        
       </Head>
-      <h2>hello</h2>
+      <Navbar></Navbar>
     </>
   );
 }
