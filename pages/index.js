@@ -1,14 +1,5 @@
-import Head from "next/head";
-import Navbar from "./components/Navbar";
+import Button from "./components/Button";
 
 export default function Home() {
-  return (
-    <>
-      <Head>
-        <title>TJRides</title>
-        
-      </Head>
-      <Navbar></Navbar>
-    </>
-  );
+  return <Button text={"Hello"} />;
 }
