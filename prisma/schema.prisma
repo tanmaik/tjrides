@@ -3,9 +3,8 @@ generator client {
 }
 
 datasource db {
-  provider     = "postgresql"
-  url          = env("DATABASE_URL")
-  relationMode = "prisma"
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
 /// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
@@ -27,16 +26,13 @@ enum Role {
 model Ride {
   id         String   @id @unique @default(cuid())
   driverId   String
-  from       Location @relation("from", fields: [fromId], references: [id])
-  fromId     String
-  to         Location @relation("to", fields: [locationId], references: [id])
-  toId       String
+  fromId     String // Location
+  toId       String // Location
   numSeats   Int
   car        String
   createdAt  DateTime @default(now())
   updatedAt  DateTime @default(now()) @updatedAt
   passengers User[]
-  locationId String
 }
 
 model Location {
@@ -44,8 +40,6 @@ model Location {
   locationType LocationType
   lat          Float
   lng          Float
-  Ride         Ride[]
-  Ride         Ride[]
 }
 
 enum LocationType {
